@@ -8,6 +8,9 @@ import { InfoFormPageRoutingModule } from './info-form-routing.module';
 
 import { InfoFormPage } from './info-form.page';
 
+import { BasicInfoComponent } from '../../components/basic-info/basic-info.component'
+import { AdvanceInfoComponent } from '../../components/advance-info/advance-info.component'
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +18,10 @@ import { InfoFormPage } from './info-form.page';
     IonicModule,
     InfoFormPageRoutingModule
   ],
-  declarations: [InfoFormPage]
+  declarations: [
+    InfoFormPage,
+    BasicInfoComponent,
+    AdvanceInfoComponent
+  ]
 })
 export class InfoFormPageModule {}

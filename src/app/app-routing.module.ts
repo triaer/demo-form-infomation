@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'info-form-display',
+    loadChildren: () => import('./pages/info-form-display/info-form-display.module').then( m => m.InfoFormDisplayPageModule)
   }
+
 ];
 
 @NgModule({

@@ -1,0 +1,43 @@
+.col {
+    width: 50%;
+    height: 100%;
+}
+
+.input-box {
+    border: 1px solid black;
+    max-width: 60%;
+    width: 60%;
+    min-width: 40%;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.input-label {
+    margin-left: 5%;
+    width: 40%;
+    max-width: 30%;
+    display: inline-block;
+    text-align: left;
+}
+
+.input-row {
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+    height: 20%;
+}
+
+.select-option {
+    width: 200px;
+}
+
+.date-box {
+    width: 17%;
+    min-width: 15%;
+    margin-right: 3%;
+    border-radius: 4px;
+}
+
+.container {
+    width: 100%;
+}

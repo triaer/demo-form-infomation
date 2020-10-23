@@ -8,19 +8,13 @@ import { PersonalInfomationService } from '../../services/personal-infomation.se
 })
 export class BasicInfoComponent implements OnInit {
   private basicInfos: BasicInfoModel[];
+
   constructor(private personalInfoService: PersonalInfomationService) { }
 
-  ngOnInit() {
-    // this.getBasicInfo();
-  }
-
-  // getBasicInfo(id: number): void {
-  //   //this.personalInfoService.getPersonalInfos().subscribe(personalInfos => this.personalInfos = personalInfos)
-  //   this.personalInfoService.getPersonalInfo()
-  // }
+  ngOnInit() { }
 
   add(firstName: string, middleName = "", lastName: string, nickName = "", gender: string, nationality: string, nation: string,
-  religion: string, relationshipStatus: string, homeTown: string, dateOfBirth: number, monthOfBirth: number, yearOfBirth: number): void {
+    religion: string, relationshipStatus: string, homeTown: string, dateOfBirth: number, monthOfBirth: number, yearOfBirth: number): void {
     let basicInfo: BasicInfoModel;
 
     basicInfo.firstName = firstName;
@@ -37,7 +31,7 @@ export class BasicInfoComponent implements OnInit {
     basicInfo.monthOfBirth = monthOfBirth;
     basicInfo.yearOfBirth = yearOfBirth;
 
-    this.personalInfoService.addBasicInfo(basicInfo, )
+    this.personalInfoService.addBasicInfo(basicInfo,)
       .subscribe(info => {
         this.basicInfos.push(info);
       });

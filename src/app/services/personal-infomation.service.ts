@@ -5,11 +5,16 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { PersonalInfoModel } from '../models/personal-info-model';
 import { BasicInfoModel } from '../models/basic-info-model';
+import { AdvanceInfoModel } from '../models/advance-info-model';
+import { AddressInfoModel } from '../models/address-info-model';
 @Injectable({
   providedIn: 'root'
 })
 export class PersonalInfomationService {
   private persionalUrl = "api/personalInfo"
+  private basicInfoUrl = "api/personalInfo/basic"
+  private advanceInfoUrl = "api/personalInfo/advance"
+  private addressInfoUrl = "api/personalInfo/address"
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -70,13 +75,35 @@ export class PersonalInfomationService {
   }
 
   /**
-   * Add new persional info
+   * Add new basic info
+   * @param hero 
+   */
+  addAdvanceInfo(addAdvanceInfo: AdvanceInfoModel): Observable<AdvanceInfoModel> {
+    return this.http.post<AdvanceInfoModel>(this.advanceInfoUrl, addAdvanceInfo, this.httpOptions).pipe(
+      tap((newInfo: AdvanceInfoModel) => this.log(`added basic info w/ id=${newInfo.id}`)),
+      catchError(this.handleError<AdvanceInfoModel>('addAdvanceInfo'))
+    );
+  }
+
+  /**
+   * Add new advance info
    * @param hero 
    */
   addBasicInfo(basicInfo: BasicInfoModel): Observable<BasicInfoModel> {
-    return this.http.post<BasicInfoModel>(this.persionalUrl, basicInfo, this.httpOptions).pipe(
+    return this.http.post<BasicInfoModel>(this.basicInfoUrl, basicInfo, this.httpOptions).pipe(
       tap((newInfo: BasicInfoModel) => this.log(`added basic info w/ id=${newInfo.id}`)),
-      catchError(this.handleError<BasicInfoModel>('addInfo'))
+      catchError(this.handleError<BasicInfoModel>('addBasicInfo'))
+    );
+  }
+
+  /**
+   * Add new adress info
+   * @param hero 
+   */
+  addAddressInfo(addressInfo: AddressInfoModel): Observable<AddressInfoModel> {
+    return this.http.post<AddressInfoModel>(this.addressInfoUrl, addressInfo, this.httpOptions).pipe(
+      tap((newInfo: AddressInfoModel) => this.log(`added address info w/ id=${newInfo.id}`)),
+      catchError(this.handleError<AddressInfoModel>('addAddressInfo'))
     );
   }
 

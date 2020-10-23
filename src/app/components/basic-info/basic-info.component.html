@@ -1,3 +1,88 @@
-<p>
-  basic-info works!
-</p>
+<ion-grid>
+  <ion-row>
+    <ion-col class="col">
+        <ion-row class="input-row">
+          <ion-label class="input-label">Họ</ion-label>
+          <ion-input class="input-box"></ion-input>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Tên đệm</ion-label>
+          <ion-input class="input-box"></ion-input>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Tên</ion-label>
+          <ion-input class="input-box"></ion-input>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Tên viết tắt</ion-label>
+          <ion-input class="input-box"></ion-input>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Giới tính</ion-label>
+          <ion-select class="input-box" interface="popover">
+            <ion-select-option value="male">Nam</ion-select-option>
+            <ion-select-option value="female">Nữ</ion-select-option>
+          </ion-select>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Quốc tịch</ion-label>
+          <ion-select class="input-box" interface="popover">
+            <ion-select-option value="VietNam">Việt Nam</ion-select-option>
+            <ion-select-option value=Thailand>Thái Lan</ion-select-option>
+          </ion-select>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Dân tộc</ion-label>
+          <ion-select class="input-box" interface="popover">
+            <ion-select-option>Kinh</ion-select-option>
+            <ion-select-option>Người Hoa</ion-select-option>
+          </ion-select>
+        </ion-row>
+    </ion-col>
+
+    <ion-col class="col">
+        <ion-row class="input-row">
+          <ion-label class="input-label">Tình trạng hôn nhân</ion-label>
+          <ion-select class="input-box" interface="popover">
+            <ion-select-option value="single">Độc thân</ion-select-option>
+            <ion-select-option value="married">Đã kết hôn</ion-select-option>
+          </ion-select>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Nguyên quán</ion-label>
+          <ion-input class="input-box"></ion-input>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Ngày sinh</ion-label>
+          <ion-select interface="popover" class="input-box date-box">
+
+          </ion-select>
+          <ion-select interface="popover" class="input-box date-box">
+
+          </ion-select>
+          <ion-select interface="popover" class="input-box date-box">
+
+          </ion-select>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Nơi sinh</ion-label>
+          <ion-textarea rows="5" class="input-box"></ion-textarea>
+        </ion-row>
+
+        <ion-row class="input-row">
+          <ion-label class="input-label">Ghi chú</ion-label>
+          <ion-textarea rows="5" class="input-box"></ion-textarea>
+        </ion-row>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
