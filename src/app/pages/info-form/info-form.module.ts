@@ -8,8 +8,9 @@ import { InfoFormPageRoutingModule } from './info-form-routing.module';
 
 import { InfoFormPage } from './info-form.page';
 
-import { BasicInfoComponent } from '../../components/basic-info/basic-info.component'
-import { AdvanceInfoComponent } from '../../components/advance-info/advance-info.component'
+import { BasicInfoComponent } from '../../components/basic-info/basic-info.component';
+import { AdvanceInfoComponent } from '../../components/advance-info/advance-info.component';
+import { AddressComponent } from '../../components/address/address.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { AdvanceInfoComponent } from '../../components/advance-info/advance-info
   declarations: [
     InfoFormPage,
     BasicInfoComponent,
-    AdvanceInfoComponent
+    AdvanceInfoComponent,
+    AddressComponent
   ]
 })
 export class InfoFormPageModule {}

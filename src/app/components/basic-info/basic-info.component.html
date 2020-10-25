@@ -1,24 +1,26 @@
 <ion-grid>
-  <ion-row>
-    <ion-col class="col">
+  <form>
+    <ion-row>
+      <ion-col class="col">
+
         <ion-row class="input-row">
           <ion-label class="input-label">Họ</ion-label>
-          <ion-input class="input-box"></ion-input>
+          <ion-input class="input-box" [(ngModel)]="firstName" name="firstName"></ion-input>
         </ion-row>
 
         <ion-row class="input-row">
           <ion-label class="input-label">Tên đệm</ion-label>
-          <ion-input class="input-box"></ion-input>
+          <ion-input class="input-box" [(ngModel)]="middleName" name="middleName"></ion-input>
         </ion-row>
 
         <ion-row class="input-row">
           <ion-label class="input-label">Tên</ion-label>
-          <ion-input class="input-box"></ion-input>
+          <ion-input class="input-box" [(ngModel)]="lastName" name="lastName"></ion-input>
         </ion-row>
 
         <ion-row class="input-row">
           <ion-label class="input-label">Tên viết tắt</ion-label>
-          <ion-input class="input-box"></ion-input>
+          <ion-input class="input-box" [(ngModel)]="nickName" name="nickName"></ion-input>
         </ion-row>
 
         <ion-row class="input-row">
@@ -44,9 +46,9 @@
             <ion-select-option>Người Hoa</ion-select-option>
           </ion-select>
         </ion-row>
-    </ion-col>
+      </ion-col>
 
-    <ion-col class="col">
+      <ion-col class="col">
         <ion-row class="input-row">
           <ion-label class="input-label">Tình trạng hôn nhân</ion-label>
           <ion-select class="input-box" interface="popover">
@@ -57,7 +59,7 @@
 
         <ion-row class="input-row">
           <ion-label class="input-label">Nguyên quán</ion-label>
-          <ion-input class="input-box"></ion-input>
+          <ion-input class="input-box" [(ngModel)]="homeTown" name="homeTown"></ion-input>
         </ion-row>
 
         <ion-row class="input-row">
@@ -75,14 +77,15 @@
 
         <ion-row class="input-row">
           <ion-label class="input-label">Nơi sinh</ion-label>
-          <ion-textarea rows="5" class="input-box"></ion-textarea>
+          <ion-textarea rows="5" class="input-box" [(ngModel)]="birthPlace" name="birthPlace"></ion-textarea>
         </ion-row>
 
         <ion-row class="input-row">
           <ion-label class="input-label">Ghi chú</ion-label>
-          <ion-textarea rows="5" class="input-box"></ion-textarea>
+          <ion-textarea rows="5" class="input-box" [(ngModel)]="note" name="note"></ion-textarea>
         </ion-row>
 
-    </ion-col>
-  </ion-row>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-grid>

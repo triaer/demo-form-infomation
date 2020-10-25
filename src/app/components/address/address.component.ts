@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddressInfoModel } from 'src/app/models/address-info-model';
+import { PersonalInfomationService } from '../../services/personal-infomation.service';
 
 @Component({
   selector: 'app-address',
@@ -9,7 +10,7 @@ import { AddressInfoModel } from 'src/app/models/address-info-model';
 export class AddressComponent implements OnInit {
   private addressInfo: AddressInfoModel[];
 
-  constructor(private personalInfoService) { }
+  constructor(private personalInfoService: PersonalInfomationService) { }
 
   ngOnInit() { }
 
@@ -23,7 +24,7 @@ export class AddressComponent implements OnInit {
     addressInfo.temporaryAddress = temporaryAddress;
     addressInfo.temporaryAddressNote = temporaryAddressNote;
 
-    this.personalInfoService.addAdvanceInfo(addressInfo,)
+    this.personalInfoService.addAddressInfo(addressInfo,)
       .subscribe(info => {
         this.addressInfo.push(info);
       });
