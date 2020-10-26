@@ -3,29 +3,29 @@
     <ion-col class="col">
       <ion-row class="input-row">
         <ion-label class="input-label">Địa chỉ thường trú</ion-label>
-        <ion-textarea rows="5" class="input-box"></ion-textarea>
+        <ion-textarea rows="5" class="input-box" #permanentAddress (ionBlur)="userInput(permanentAddress)" name="permanentAddress"></ion-textarea>
       </ion-row>
 
       <ion-row class="input-row">
         <ion-label class="input-label">Ghi chú</ion-label>
-        <ion-textarea rows="5" class="input-box"></ion-textarea>
+        <ion-textarea rows="5" class="input-box" #permanentAddressNote (ionBlur)="userInput(permanentAddressNote)" name="permanentAddressNote"></ion-textarea>
       </ion-row>
     </ion-col>
 
     <ion-col class="col">
       <ion-row class="input-row">
         <ion-label class="input-label">Địa chỉ tạm trú</ion-label>
-        <ion-textarea rows="5" class="input-box"></ion-textarea>
+        <ion-textarea rows="5" class="input-box" #temporaryAddress (ionBlur)="userInput(temporaryAddress)" name="temporaryAddress"></ion-textarea>
       </ion-row>
 
       <ion-row class="input-row">
         <ion-label class="input-label">Địa chỉ nhà riêng</ion-label>
-        <ion-textarea rows="5" class="input-box"></ion-textarea>
+        <ion-textarea rows="5" class="input-box" #homeAddress (ionBlur)="userInput(homeAddress)" name="homeAddress"></ion-textarea>
       </ion-row>
 
       <ion-row class="input-row">
         <ion-label class="input-label">Ghi chú</ion-label>
-        <ion-textarea rows="5" class="input-box"></ion-textarea>
+        <ion-textarea rows="5" class="input-box" #temporaryAddressNote (ionBlur)="userInput(temporaryAddressNote)" name="temporaryAddressNote"></ion-textarea>
       </ion-row>
     </ion-col>
   </ion-row>

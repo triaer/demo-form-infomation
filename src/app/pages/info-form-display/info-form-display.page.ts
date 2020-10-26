@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonalInfomationService } from 'src/app/services/personal-infomation.service';
 
 @Component({
   selector: 'app-info-form-display',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoFormDisplayPage implements OnInit {
 
-  constructor() { }
+  constructor(private personalInfoService: PersonalInfomationService) { 
+    personalInfoService.getPersonalInfoLocal();
+
+    
+  }
 
   ngOnInit() {
   }
+
+
 
 }

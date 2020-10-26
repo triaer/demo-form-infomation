@@ -11,8 +11,7 @@ import { PersonalInfomationService } from '../../services/personal-infomation.se
   styleUrls: ['./personal-infos.component.scss'],
 })
 export class PersonalInfosComponent implements OnInit {
-  personalInfos: PersonalInfoModel[];
-
+  private personalInfos: PersonalInfoModel[];
   constructor(private personalInfoService: PersonalInfomationService) { }
 
   ngOnInit() {

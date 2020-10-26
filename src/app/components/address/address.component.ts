@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IonInput } from '@ionic/angular';
+import { AddressInfoEnum } from 'src/app/common/enum';
 import { AddressInfoModel } from 'src/app/models/address-info-model';
 import { PersonalInfomationService } from '../../services/personal-infomation.service';
 
@@ -8,25 +10,35 @@ import { PersonalInfomationService } from '../../services/personal-infomation.se
   styleUrls: ['./address.component.scss'],
 })
 export class AddressComponent implements OnInit {
-  private addressInfo: AddressInfoModel[];
+  private addressInfo: AddressInfoModel;
 
   constructor(private personalInfoService: PersonalInfomationService) { }
 
   ngOnInit() { }
 
-  add(homeAddress: string, permanentAddress: string, permanentAddressNote = "",
-    temporaryAddress: string, temporaryAddressNote = ""): void {
-    let addressInfo: AddressInfoModel;
-
-    addressInfo.homeAddress = homeAddress;
-    addressInfo.permanentAddress = permanentAddress;
-    addressInfo.permanentAddressNote = permanentAddressNote;
-    addressInfo.temporaryAddress = temporaryAddress;
-    addressInfo.temporaryAddressNote = temporaryAddressNote;
-
-    this.personalInfoService.addAddressInfo(addressInfo,)
-      .subscribe(info => {
-        this.addressInfo.push(info);
-      });
+  userInput(key: IonInput) {
+    if (this.addressInfo == undefined) {
+      this.addressInfo = Object.create(null);
+    }
+    
+    key.getInputElement().then(element => {
+      switch (element.name.toUpperCase()) {
+        case AddressInfoEnum.PERMANENTADDRESS:
+          this.addressInfo.permanentAddress = element.value;
+          break;
+        case AddressInfoEnum.PERMANENTADDRESSNOTE:
+          this.addressInfo.permanentAddressNote = element.value;
+          break;
+        case AddressInfoEnum.TEMPORARYADDRESS:
+          this.addressInfo.temporaryAddress = element.value;
+          break;
+        case AddressInfoEnum.HOMEADDRESS:
+          this.addressInfo.homeAddress = element.value;
+          break;
+        case AddressInfoEnum.TEMPORARYADDRESSNOTE:
+          this.addressInfo.temporaryAddressNote = element.value;
+          break;
+      }
+    });
   }
 }

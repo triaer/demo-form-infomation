@@ -16,6 +16,8 @@ export class PersonalInfomationService {
   private advanceInfoUrl = "api/personalInfo/advance"
   private addressInfoUrl = "api/personalInfo/address"
 
+
+  private personalInfo : PersonalInfoModel;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -101,10 +103,17 @@ export class PersonalInfomationService {
    * @param hero 
    */
   addAddressInfo(addressInfo: AddressInfoModel): Observable<AddressInfoModel> {
-    return this.http.post<AddressInfoModel>(this.addressInfoUrl, addressInfo, this.httpOptions).pipe(
-      tap((newInfo: AddressInfoModel) => this.log(`added address info w/ id=${newInfo.id}`)),
-      catchError(this.handleError<AddressInfoModel>('addAddressInfo'))
-    );
+    var s = true;
+
+
+    if(!s == true) {
+      return this.http.post<AddressInfoModel>(this.addressInfoUrl, addressInfo, this.httpOptions).pipe(
+        tap((newInfo: AddressInfoModel) => this.log(`added address info w/ id=${newInfo.id}`)),
+        catchError(this.handleError<AddressInfoModel>('addAddressInfo'))
+      );
+    }
+    else
+      return;
   }
 
   /**
@@ -122,5 +131,17 @@ export class PersonalInfomationService {
         }),
         catchError(this.handleError<PersonalInfoModel>(`getPersonalInfo id=${id}`))
       );
+  }
+
+  setAddress(addAddressInfo: AddressInfoModel) {
+    if(this.personalInfo == undefined) {
+      this.personalInfo = Object.create(null);
+    }
+
+    this.personalInfo.addressInfo = addAddressInfo;
+  }
+
+  getPersonalInfoLocal(): PersonalInfoModel {
+    return this.personalInfo;
   }
 }

@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { IonInput } from '@ionic/angular';
+import { element } from 'protractor';
+import { Observable, of, Subject } from 'rxjs';
+import { BasicInfoEnum } from 'src/app/common/enum';
 import { BasicInfoModel } from '../../models/basic-info-model';
 import { PersonalInfomationService } from '../../services/personal-infomation.service';
 @Component({
@@ -8,63 +11,62 @@ import { PersonalInfomationService } from '../../services/personal-infomation.se
   styleUrls: ['./basic-info.component.scss'],
 })
 export class BasicInfoComponent implements OnInit {
-  
-  private basicInfos: BasicInfoModel[];
 
-  @Input() private firstName: string;
-  @Input() private middleName: string;
-  @Input() private lastName: string;
-  @Input() private nickName: string;
-  @Input() private gender: string;
-  @Input() private nationality: string;
-  @Input() private nation: string;
-  @Input() private religion: string;
-  @Input() private relationshipStatu: string;
-  @Input() private homeTown: string;
-  @Input() private dayOfBirth: string;
-  @Input() private monthOfBirth: string;
-  @Input() private yearOfBirth: string;
-
-  private userInput = new Subject<string>();
+  private basicInfo: BasicInfoModel;
 
   constructor(private personalInfoService: PersonalInfomationService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
-  add(firstName: string, middleName = "", lastName: string, nickName = "", gender: string, nationality: string, nation: string,
-    religion: string, relationshipStatus: string, homeTown: string, dateOfBirth: number, monthOfBirth: number, yearOfBirth: number): void {
-    let basicInfo: BasicInfoModel;
+  add(): void {
 
-    basicInfo.firstName = firstName;
-    basicInfo.middleName = middleName;
-    basicInfo.lastName = lastName;
-    basicInfo.nickName = nickName;
-    basicInfo.gender = gender;
-    basicInfo.nationality = nationality;
-    basicInfo.nation = nation;
-    basicInfo.religion = religion;
-    basicInfo.relationshipStatus = relationshipStatus;
-    basicInfo.homeTown = homeTown;
-    basicInfo.dayOfBirth = dateOfBirth;
-    basicInfo.monthOfBirth = monthOfBirth;
-    basicInfo.yearOfBirth = yearOfBirth;
+  }
+
+  userInput(key: IonInput) {
+    if (this.basicInfo == undefined) {
+      this.basicInfo = Object.create(null);
+    }
     
-
-    this.personalInfoService.addBasicInfo(basicInfo,)
-      .subscribe(info => {
-        this.basicInfos.push(info);
-      });
-  }
-
-  input(data: string) {
-    console.log(this.userInput.next(data));
-  }
-
-  ionBlur(data: string): void {
-    
-  }
-
-  ionChange(data: string): void {
-    console.log(this.firstName);
+    key.getInputElement().then(element => {
+      switch (element.name.toUpperCase()) {
+        case BasicInfoEnum.FIRSTNAME:
+          this.basicInfo.firstName = element.value;
+          break;
+        case BasicInfoEnum.MIDDLENAME:
+          this.basicInfo.middleName = element.value;
+          break;
+        case BasicInfoEnum.LASTNAME:
+          this.basicInfo.lastName = element.value;
+          break;
+        case BasicInfoEnum.NICKNAME:
+          this.basicInfo.nickName = element.value;
+          break;
+        case BasicInfoEnum.NATIONALITY:
+          this.basicInfo.nationality = element.value;
+          break;
+        case BasicInfoEnum.NATION:
+          this.basicInfo.nation = element.value;
+          break;
+        case BasicInfoEnum.RELIGION:
+          this.basicInfo.religion = element.value;
+          break;
+        case BasicInfoEnum.RELATIONSHIPSTATUS:
+          this.basicInfo.relationshipStatus = element.value;
+          break;
+        case BasicInfoEnum.HOMETOWN:
+          this.basicInfo.homeTown = element.value;
+          break;
+        case BasicInfoEnum.DAYOFBIRTH:
+          this.basicInfo.dayOfBirth = +element.value;
+          break;
+        case BasicInfoEnum.MONTHOFBIRTH:
+          this.basicInfo.monthOfBirth = +element.value;
+          break;
+        case BasicInfoEnum.YEAROFBIRTH:
+          this.basicInfo.yearOfBirth = +element.value;
+          break;
+      }
+    });
   }
 }
