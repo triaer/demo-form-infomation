@@ -17,14 +17,17 @@ export class AddressComponent implements OnInit {
   ngOnInit() { }
 
   userInput(key: IonInput) {
+    
     if (this.addressInfo == undefined) {
       this.addressInfo = Object.create(null);
     }
+
     
     key.getInputElement().then(element => {
       switch (element.name.toUpperCase()) {
         case AddressInfoEnum.PERMANENTADDRESS:
           this.addressInfo.permanentAddress = element.value;
+          console.log(this.addressInfo.permanentAddress)
           break;
         case AddressInfoEnum.PERMANENTADDRESSNOTE:
           this.addressInfo.permanentAddressNote = element.value;
@@ -40,5 +43,7 @@ export class AddressComponent implements OnInit {
           break;
       }
     });
+    
+    this.personalInfoService.setAddress(this.addressInfo);
   }
 }

@@ -1,32 +1,181 @@
-<ion-grid>
-  <ion-row>
-    <ion-col class="col">
-      <ion-row class="input-row">
-        <ion-label class="input-label">Địa chỉ thường trú</ion-label>
-        <ion-textarea rows="5" class="input-box" #permanentAddress (ionBlur)="userInput(permanentAddress)" name="permanentAddress"></ion-textarea>
-      </ion-row>
+<ion-content>
+  <ion-infinite-scroll>
+    <ion-grid>
+      <ion-row class="test">
+        <ion-item class="test">
+          <label>1. Thông tin cơ bản</label>
+        </ion-item>
 
-      <ion-row class="input-row">
-        <ion-label class="input-label">Ghi chú</ion-label>
-        <ion-textarea rows="5" class="input-box" #permanentAddressNote (ionBlur)="userInput(permanentAddressNote)" name="permanentAddressNote"></ion-textarea>
-      </ion-row>
-    </ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="col">
 
-    <ion-col class="col">
-      <ion-row class="input-row">
-        <ion-label class="input-label">Địa chỉ tạm trú</ion-label>
-        <ion-textarea rows="5" class="input-box" #temporaryAddress (ionBlur)="userInput(temporaryAddress)" name="temporaryAddress"></ion-textarea>
-      </ion-row>
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Họ và tên</ion-label>
+                  <ion-text>
+                    <p placeHolder="(trống)">{{this.personalInfo.addressInfo.permanentAddress}}</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
 
-      <ion-row class="input-row">
-        <ion-label class="input-label">Địa chỉ nhà riêng</ion-label>
-        <ion-textarea rows="5" class="input-box" #homeAddress (ionBlur)="userInput(homeAddress)" name="homeAddress"></ion-textarea>
-      </ion-row>
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Tên viết tắt</ion-label>
+                  <ion-text>
+                    <p>ABCD</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
 
-      <ion-row class="input-row">
-        <ion-label class="input-label">Ghi chú</ion-label>
-        <ion-textarea rows="5" class="input-box" #temporaryAddressNote (ionBlur)="userInput(temporaryAddressNote)" name="temporaryAddressNote"></ion-textarea>
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Giới tính</ion-label>
+                  <ion-text>
+                    <p>ABCD</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
+
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Quốc tịch</ion-label>
+                  <ion-text>
+                    <p>ABCD</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
+
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Dân tộc</ion-label>
+                  <ion-text>
+                    <p>ABCD</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
+            </ion-col>
+
+            <ion-col class="col">
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Tình trạng hôn nhân</ion-label>
+                  <ion-text>
+                    <p>ABCD</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
+
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Nguyên quán</ion-label>
+                  <ion-text>
+                    <p>ABCD</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
+
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Ngày sinh</ion-label>
+                  <ion-text>
+                    <p>ABCD</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
+
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Nơi sinh</ion-label>
+                  <ion-text>
+                    <p>ABCD</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
+
+              <ion-row class="input-row">
+                <ion-item class="test">
+                  <ion-label class="input-label">Ghi chú</ion-label>
+                  <ion-text>
+                    <p>ABCD</p>
+                  </ion-text>
+                </ion-item>
+              </ion-row>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-row>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+      <ion-row class="test">
+        <ion-item class="test">
+          <label>2. Thông tin chứng thực và thuế TNCN</label>
+        </ion-item>
+
+      </ion-row>
+      <ion-row class="test">
+        <ion-item class="test">
+          <label>3. Địa chỉ cư trú</label>
+        </ion-item>
+
+        <ion-col class="col">
+          <ion-row class="input-row">
+            <ion-item class="test">
+              <ion-label class="input-label">Địa chỉ thường trú</ion-label>
+              <ion-text>
+                <p>ABCD</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="test">
+              <ion-label class="input-label">Ghi chú</ion-label>
+              <ion-text>
+                <p>ABCD</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+        </ion-col>
+
+        <ion-col class="col">
+          <ion-row class="input-row">
+            <ion-item class="test">
+              <ion-label class="input-label">Địa chỉ tạm trú</ion-label>
+              <ion-text>
+                <p>ABCD</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="test">
+              <ion-label class="input-label">Địa chỉ nhà riêng</ion-label>
+              <ion-text>
+                <p>ABCD</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="test">
+              <ion-label class="input-label">Ghi chú</ion-label>
+              <ion-text>
+                <p>ABCD</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+
+          <ion-row class="input-row">
+            <ion-item class="test">
+              <ion-label class="input-label"></ion-label>
+              <ion-text>
+                <p></p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-infinite-scroll>
+</ion-content>

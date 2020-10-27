@@ -1,7 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonInput } from '@ionic/angular';
-import { element } from 'protractor';
-import { Observable, of, Subject } from 'rxjs';
 import { BasicInfoEnum } from 'src/app/common/enum';
 import { BasicInfoModel } from '../../models/basic-info-model';
 import { PersonalInfomationService } from '../../services/personal-infomation.service';
@@ -13,10 +11,11 @@ import { PersonalInfomationService } from '../../services/personal-infomation.se
 export class BasicInfoComponent implements OnInit {
 
   private basicInfo: BasicInfoModel;
-
+  
   constructor(private personalInfoService: PersonalInfomationService) { }
 
   ngOnInit() {
+    
   }
 
   add(): void {
