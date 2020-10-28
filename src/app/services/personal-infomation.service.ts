@@ -16,16 +16,21 @@ export class PersonalInfomationService {
   private advanceInfoUrl = "api/personalInfo/advance"
   private addressInfoUrl = "api/personalInfo/address"
 
-
-  private personalInfo : PersonalInfoModel;
+  private personalInfo: PersonalInfoModel;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService,
-  ) { }
+  constructor(private http: HttpClient, private messageService: MessageService) {
+    this.personalInfo = Object.create(null);
+    
+    if (this.personalInfo.basicInfo == undefined)
+      this.personalInfo.basicInfo = this.initiateBasicInfo();
+    if (this.personalInfo.advanceInfo == undefined)
+      this.personalInfo.advanceInfo = this.initiateAdvanceInfo();
+    if (this.personalInfo.addressInfo == undefined)
+      this.personalInfo.addressInfo = this.initiateAddressInfo();
+  }
 
   /**
    * Log a HeroService message with the MessageService
@@ -106,7 +111,7 @@ export class PersonalInfomationService {
     var s = true;
 
 
-    if(!s == true) {
+    if (!s == true) {
       return this.http.post<AddressInfoModel>(this.addressInfoUrl, addressInfo, this.httpOptions).pipe(
         tap((newInfo: AddressInfoModel) => this.log(`added address info w/ id=${newInfo.id}`)),
         catchError(this.handleError<AddressInfoModel>('addAddressInfo'))
@@ -133,15 +138,98 @@ export class PersonalInfomationService {
       );
   }
 
-  setAddress(addAddressInfo: AddressInfoModel) {
-    if(this.personalInfo == undefined) {
-      this.personalInfo = Object.create(null);
-    }
+  setAddressInfo(addressInfo: AddressInfoModel) {
+    this.personalInfo.addressInfo = addressInfo;
+  }
 
-    this.personalInfo.addressInfo = addAddressInfo;
+  setBasicInfo(basicInfo: BasicInfoModel) {
+    this.personalInfo.basicInfo = basicInfo;
+  }
+
+  setAdvanceInfo(advanceInfo: AdvanceInfoModel) {
+    this.personalInfo.advanceInfo = advanceInfo;
   }
 
   getPersonalInfoLocal(): PersonalInfoModel {
     return this.personalInfo;
+  }
+
+  /**
+   * Initiate basic info
+   */
+  public initiateBasicInfo(): BasicInfoModel {
+    let basicInfo: BasicInfoModel = {
+      id: 0,
+      firstName: "",
+      middleName: "",
+      lastName: "",
+      nickName: "",
+      gender: "",
+      nationality: "",
+      nation: "",
+      relationshipStatus: "",
+      religion: "",
+      homeTown: "",
+      birthPlace: "",
+      note: "",
+      dayOfBirth: 1,
+      monthOfBirth: 1,
+      yearOfBirth: 1990
+    }
+
+    return basicInfo;
+  }
+
+  /**
+   * Intiate advance info
+   */
+  public initiateAdvanceInfo(): AdvanceInfoModel {
+    let advanceInfo: AdvanceInfoModel = {
+      id: 0,
+
+      identityCardNumber: "",
+      identityCardDate: "",
+      expireIdentityCardDate: "",
+      identityCardIssueBy: "",
+
+      identityNumber: "",
+      identityDate: "",
+      expireIdentityDate: "",
+
+      taxNumber: "",
+      registrationDate: "",
+      registrationPlace: "",
+
+      passportNumber: "",
+      passportDate: "",
+      expiredPassportDate: "",
+      visaIssuedBy: "",
+      passportType: "",
+
+      visaNumber: "",
+      visaDate: "",
+      expiredVisaDate: "",
+      nation: "",
+    }
+
+    return advanceInfo;
+  }
+
+  /**
+   * Intiate address info
+   */
+  public initiateAddressInfo(): AddressInfoModel {
+    let addressInfo: AddressInfoModel = {
+      id: 0,
+
+      permanentAddress: "",
+      permanentAddressNote: "",
+
+      temporaryAddress: "",
+      homeAddress: "",
+      temporaryAddressNote: "",
+    }
+
+    return addressInfo;
   }
 }

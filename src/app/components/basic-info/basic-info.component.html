@@ -25,9 +25,9 @@
 
       <ion-row class="input-row">
         <ion-label class="input-label">Giới tính</ion-label>
-        <ion-select class="input-box" interface="popover">
-          <ion-select-option value="male">Nam</ion-select-option>
-          <ion-select-option value="female">Nữ</ion-select-option>
+        <ion-select class="input-box" #gender (ionChange)="userInput(gender)" name="gender" interface="popover">
+          <ion-select-option>Nam</ion-select-option>
+          <ion-select-option>Nữ</ion-select-option>
         </ion-select>
       </ion-row>
 

@@ -14,7 +14,7 @@
                 <ion-item class="test">
                   <ion-label class="input-label">Họ và tên</ion-label>
                   <ion-text>
-                    <p placeHolder="(trống)">{{this.personalInfo.addressInfo.permanentAddress}}</p>
+                    <p>{{personalInfo.basicInfo.firstName}} {{personalInfo.basicInfo.middleName}} {{personalInfo.basicInfo.lastName}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
@@ -32,7 +32,7 @@
                 <ion-item class="test">
                   <ion-label class="input-label">Giới tính</ion-label>
                   <ion-text>
-                    <p>ABCD</p>
+                    <p>{{personalInfo.basicInfo.gender}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
@@ -122,7 +122,7 @@
             <ion-item class="test">
               <ion-label class="input-label">Địa chỉ thường trú</ion-label>
               <ion-text>
-                <p>ABCD</p>
+                <p>{{personalInfo.addressInfo.permanentAddress}}</p>
               </ion-text>
             </ion-item>
           </ion-row>
@@ -131,7 +131,7 @@
             <ion-item class="test">
               <ion-label class="input-label">Ghi chú</ion-label>
               <ion-text>
-                <p>ABCD</p>
+                <p>{{personalInfo.addressInfo.permanentAddressNote}}</p>
               </ion-text>
             </ion-item>
           </ion-row>
@@ -142,7 +142,7 @@
             <ion-item class="test">
               <ion-label class="input-label">Địa chỉ tạm trú</ion-label>
               <ion-text>
-                <p>ABCD</p>
+                <p>{{personalInfo.addressInfo.temporaryAddress}}</p>
               </ion-text>
             </ion-item>
           </ion-row>
@@ -151,7 +151,7 @@
             <ion-item class="test">
               <ion-label class="input-label">Địa chỉ nhà riêng</ion-label>
               <ion-text>
-                <p>ABCD</p>
+                <p>{{personalInfo.addressInfo.homeAddress}}</p>
               </ion-text>
             </ion-item>
           </ion-row>
@@ -160,7 +160,7 @@
             <ion-item class="test">
               <ion-label class="input-label">Ghi chú</ion-label>
               <ion-text>
-                <p>ABCD</p>
+                <p>{{personalInfo.addressInfo.temporaryAddressNote}}</p>
               </ion-text>
             </ion-item>
           </ion-row>

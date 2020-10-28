@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IonInput } from '@ionic/angular';
+import { AdvanceInfoEnum } from 'src/app/common/enum';
 import { AdvanceInfoModel } from '../../models/advance-info-model';
 import { PersonalInfomationService } from '../../services/personal-infomation.service';
 @Component({
@@ -7,45 +9,75 @@ import { PersonalInfomationService } from '../../services/personal-infomation.se
   styleUrls: ['./advance-info.component.scss'],
 })
 export class AdvanceInfoComponent implements OnInit {
-  private advanceInfos: AdvanceInfoModel[];
+  private advanceInfo: AdvanceInfoModel;
 
   constructor(private personalInfoService: PersonalInfomationService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.advanceInfo = this.personalInfoService.initiateAdvanceInfo();
+  }
 
-  add(expireIdentityCardDate: string, expireIdentityDate: string, identityCardDate: string,
-    identityCardNumber: string, identityCardIssueBy: string, identityDate: string, identityNumber: string,
-    taxNumber: string, registrationDate: string, registrationPlace: string, passportNumber: string, 
-    passportDate: string, expiredPassportDate: string, visaIssuedBy: string, passportType: string,
-    visaNumber: string, visaDate: string, expiredVisaDate: string, nation: string): void {
-      
-    let advanceInfo: AdvanceInfoModel;
+  userInput(key: IonInput) {
+    key.getInputElement().then(element => {
+      var value = element.value.trim();
+      switch (element.name.toUpperCase()) {
+        case AdvanceInfoEnum.IDENTITYCARDiSSUEBY:
+          this.advanceInfo.identityCardIssueBy = value;
+          break;
+        case AdvanceInfoEnum.IDENTITYDATE:
+          this.advanceInfo.identityDate = value;
+          break;
+        case AdvanceInfoEnum.EXPIREDPASSPORTDATE:
+          this.advanceInfo.expiredPassportDate = value;
+          break;
+        case AdvanceInfoEnum.EXPIREIDENTITYCARDDATE:
+          this.advanceInfo.expireIdentityCardDate = value;
+          break;
+        case AdvanceInfoEnum.EXPIREIDENTITYDATE:
+          this.advanceInfo.expireIdentityDate = value;
+          break;
+        case AdvanceInfoEnum.EXPIREDVISADATE:
+          this.advanceInfo.expiredVisaDate = value;
+          break;
+        case AdvanceInfoEnum.IDENTITYCARDDATE:
+          this.advanceInfo.identityCardDate = value;
+          break;
+        case AdvanceInfoEnum.NATION:
+          this.advanceInfo.nation = value;
+          break;
+        case AdvanceInfoEnum.IDENTITYCARDNUMBER:
+          this.advanceInfo.identityCardNumber = value;
+          break;
+        case AdvanceInfoEnum.PASSPORTDATE:
+          this.advanceInfo.passportDate = value;
+          break;
+        case AdvanceInfoEnum.PASSPORTNUMBER:
+          this.advanceInfo.passportNumber = value;
+          break;
+        case AdvanceInfoEnum.PASSPORTTYPE:
+          this.advanceInfo.passportType = value;
+          break;
+        case AdvanceInfoEnum.REGISTRATIONDATE:
+          this.advanceInfo.registrationDate = value;
+          break;
+        case AdvanceInfoEnum.REGISTRATIONPLACE:
+          this.advanceInfo.registrationPlace = value;
+          break;
+        case AdvanceInfoEnum.TAXNUMBER:
+          this.advanceInfo.taxNumber = value;
+          break;
+        case AdvanceInfoEnum.VISADATE:
+          this.advanceInfo.visaDate = value;
+          break;
+        case AdvanceInfoEnum.VISAISSUEDBY:
+          this.advanceInfo.visaIssuedBy = value;
+          break;
+        case AdvanceInfoEnum.VISANUMBER:
+          this.advanceInfo.visaNumber = value;
+          break;
+      }
+    });
 
-    advanceInfo.expireIdentityCardDate = expireIdentityCardDate;
-    advanceInfo.expireIdentityDate = expireIdentityDate;
-    advanceInfo.identityCardDate = identityCardDate;
-    advanceInfo.identityCardNumber = identityCardNumber;
-    advanceInfo.identityCardIssueBy = identityCardIssueBy;
-    advanceInfo.identityDate = identityDate;
-    advanceInfo.identityNumber = identityNumber;
-    advanceInfo.taxNumber = taxNumber;
-    advanceInfo.registrationDate = registrationDate;
-    advanceInfo.registrationPlace = registrationPlace;
-
-    advanceInfo.passportNumber = passportNumber;
-    advanceInfo.passportDate = passportDate;
-    advanceInfo.expiredPassportDate = expiredPassportDate;
-    advanceInfo.visaIssuedBy = visaIssuedBy;
-    advanceInfo.passportType = passportType;
-
-    advanceInfo.visaNumber = visaNumber;
-    advanceInfo.visaDate = visaDate;
-    advanceInfo.expiredVisaDate = expiredVisaDate;
-    advanceInfo.nation = nation;
-
-    this.personalInfoService.addAdvanceInfo(advanceInfo,)
-      .subscribe(info => {
-        this.advanceInfos.push(info);
-      });
+    this.personalInfoService.setAdvanceInfo(this.advanceInfo);
   }
 }

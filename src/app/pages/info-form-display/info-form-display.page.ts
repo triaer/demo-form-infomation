@@ -11,22 +11,14 @@ import { PersonalInfomationService } from 'src/app/services/personal-infomation.
   styleUrls: ['./info-form-display.page.scss'],
 })
 export class InfoFormDisplayPage implements OnInit {
-  private personalInfo: PersonalInfoModel;
-  private basicInfo: BasicInfoModel;
-  private address: AddressInfoModel;
-  private adva: AdvanceInfoModel;
-
-  
+  private personalInfo: PersonalInfoModel
 
   constructor(private personalInfoService: PersonalInfomationService) { 
   }
 
   ngOnInit() {
-    // this.personalInfo = this.personalInfoService.getPersonalInfoLocal();
-    // this.personalInfo.addressInfo.permanentAddress;
-    // console.log(this.personalInfo)
+    this.personalInfo = Object.create(null);
+    this.personalInfo = this.personalInfoService.getPersonalInfoLocal();
+    console.log(this.personalInfo.basicInfo.gender)
   }
-
-
-
 }
