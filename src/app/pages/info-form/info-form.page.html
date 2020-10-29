@@ -1,26 +1,33 @@
 <ion-content>
+  <h1 class="title-page">Bảng Điền Thông Tin</h1>
   <ion-infinite-scroll>
     <ion-grid>
-      <ion-row class="test">
-        <ion-item class="test">
+      <ion-row class="container">
+        <nav class="container">
+          <a routerLink="/info-form-display" class="container nav-button">
+            <p class="nav-text"><ion-icon name="arrow-down-outline"></ion-icon>Hiển thị thông tin</p>
+          </a>
+        </nav>
+      </ion-row>
+      <ion-row class="container">
+        <ion-item class="container title">
           <label>1. Thông tin cơ bản</label>
         </ion-item>
-
-        <app-basic-info class="test"></app-basic-info>
+        <app-basic-info class="container"></app-basic-info>
       </ion-row>
-      <ion-row class="test">
-        <ion-item class="test">
+      <ion-row class="container">
+        <ion-item class="container title">
           <label>2. Thông tin chứng thực và thuế TNCN</label>
         </ion-item>
 
-        <app-advance-info class="test"></app-advance-info>
+        <app-advance-info class="container"></app-advance-info>
       </ion-row>
-      <ion-row class="test">
-        <ion-item class="test">
+      <ion-row class="container">
+        <ion-item class="container title">
           <label>3. Địa chỉ cư trú</label>
         </ion-item>
 
-        <app-address class="test"></app-address>
+        <app-address class="container"></app-address>
       </ion-row>
     </ion-grid>
   </ion-infinite-scroll>

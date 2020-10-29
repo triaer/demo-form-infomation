@@ -1,5 +1,5 @@
-import { Component, OnInit, Type } from '@angular/core';
-import { IonInput, IonItemOptions, IonSelect, IonSelectOption } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { IonDatetime, IonInput, IonSelect, IonTextarea } from '@ionic/angular';
 import { BasicInfoEnum } from 'src/app/common/enum';
 import { BasicInfoModel } from '../../models/basic-info-model';
 import { PersonalInfomationService } from '../../services/personal-infomation.service';
@@ -11,7 +11,7 @@ import { PersonalInfomationService } from '../../services/personal-infomation.se
 export class BasicInfoComponent implements OnInit {
 
   private basicInfo: BasicInfoModel;
-  
+
   constructor(private personalInfoService: PersonalInfomationService) { }
 
   ngOnInit() {
@@ -19,7 +19,7 @@ export class BasicInfoComponent implements OnInit {
   }
 
   userInput(key: any) {
-    if(key instanceof IonInput) {
+    if (key instanceof IonInput) {
       key.getInputElement().then(element => {
         var value = element.value.trim();
         switch (element.name.toUpperCase()) {
@@ -35,37 +35,46 @@ export class BasicInfoComponent implements OnInit {
           case BasicInfoEnum.NICKNAME:
             this.basicInfo.nickName = value;
             break;
-          case BasicInfoEnum.NATIONALITY:
-            this.basicInfo.nationality = value;
-            break;
-          case BasicInfoEnum.NATION:
-            this.basicInfo.nation = value;
-            break;
-          case BasicInfoEnum.RELIGION:
-            this.basicInfo.religion = value;
-            break;
-          case BasicInfoEnum.RELATIONSHIPSTATUS:
-            this.basicInfo.relationshipStatus = value;
-            break;
           case BasicInfoEnum.HOMETOWN:
             this.basicInfo.homeTown = value;
             break;
-          case BasicInfoEnum.DAYOFBIRTH:
-            this.basicInfo.dayOfBirth = +value;
+          case BasicInfoEnum.BIRTHPLACE:
+            this.basicInfo.birthPlace = value;
             break;
-          case BasicInfoEnum.MONTHOFBIRTH:
-            this.basicInfo.monthOfBirth = +value;
-            break;
-          case BasicInfoEnum.YEAROFBIRTH:
-            this.basicInfo.yearOfBirth = +value;
+          case BasicInfoEnum.NOTE:
+            this.basicInfo.note = value;
             break;
         }
       });
     }
-    else if (key instanceof IonSelect) {
+    else if (key instanceof IonSelect || key instanceof IonDatetime || key instanceof IonTextarea) {
       switch (key.name.toUpperCase()) {
         case BasicInfoEnum.GENDER:
           this.basicInfo.gender = key.value;
+          break;
+        case BasicInfoEnum.NATIONALITY:
+          this.basicInfo.nationality = key.value;
+          break;
+        case BasicInfoEnum.NATION:
+          this.basicInfo.nation = key.value;
+          break;
+        case BasicInfoEnum.RELATIONSHIPSTATUS:
+          this.basicInfo.relationshipStatus = key.value;
+          break;
+        case BasicInfoEnum.DAYOFBIRTH:
+          var dateTime = new Date(key.value);
+          this.basicInfo.dayOfBirth = dateTime.getDate();
+          break;
+        case BasicInfoEnum.MONTHOFBIRTH:
+          var dateTime = new Date(key.value);
+          this.basicInfo.monthOfBirth = dateTime.getMonth() + 1;
+          break;
+        case BasicInfoEnum.YEAROFBIRTH:
+          var dateTime = new Date(key.value);
+          this.basicInfo.yearOfBirth = dateTime.getFullYear();
+          break;
+        case BasicInfoEnum.NOTE:
+          this.basicInfo.note = key.value;
           break;
       }
     }

@@ -1,35 +1,47 @@
 <ion-content>
+  
+  <h1 class="title-page">Bảng Hiển Thị Thông Tin</h1>
   <ion-infinite-scroll>
     <ion-grid>
-      <ion-row class="test">
-        <ion-item class="test">
-          <label>1. Thông tin cơ bản</label>
-        </ion-item>
+      <ion-row class="container">
+        <nav class="container">
+          <a routerLink="/info-form" class="container nav-button">
+            <p class="nav-text"><ion-icon name="arrow-down-outline"></ion-icon>Điền thông tin</p>
+          </a>
+        </nav>
+      </ion-row>
+      <ion-row class="container">
+        <ion-row class="container">
+          <ion-item class="container title">
+            <label>1. Thông tin cơ bản</label>
+          </ion-item>
+        </ion-row>
 
         <ion-grid>
           <ion-row>
             <ion-col class="col">
 
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Họ và tên</ion-label>
                   <ion-text>
-                    <p>{{personalInfo.basicInfo.firstName}} {{personalInfo.basicInfo.middleName}} {{personalInfo.basicInfo.lastName}}</p>
+                    <p>{{personalInfo.basicInfo.firstName}} {{personalInfo.basicInfo.middleName}}
+                      {{personalInfo.basicInfo.lastName}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
 
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Tên viết tắt</ion-label>
                   <ion-text>
-                    <p>ABCD</p>
+                    <p>{{personalInfo.basicInfo.nickName}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
 
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Giới tính</ion-label>
                   <ion-text>
                     <p>{{personalInfo.basicInfo.gender}}</p>
@@ -38,19 +50,19 @@
               </ion-row>
 
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Quốc tịch</ion-label>
                   <ion-text>
-                    <p>ABCD</p>
+                    <p>{{personalInfo.basicInfo.nationality}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
 
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Dân tộc</ion-label>
                   <ion-text>
-                    <p>ABCD</p>
+                    <p>{{personalInfo.basicInfo.nation}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
@@ -58,46 +70,48 @@
 
             <ion-col class="col">
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Tình trạng hôn nhân</ion-label>
                   <ion-text>
-                    <p>ABCD</p>
+                    <p>{{personalInfo.basicInfo.relationshipStatus}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
 
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Nguyên quán</ion-label>
                   <ion-text>
-                    <p>ABCD</p>
+                    <p>{{personalInfo.basicInfo.homeTown}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
 
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Ngày sinh</ion-label>
                   <ion-text>
-                    <p>ABCD</p>
+                    <p>
+                      {{personalInfo.basicInfo.dayOfBirth}}/{{personalInfo.basicInfo.monthOfBirth}}/{{personalInfo.basicInfo.yearOfBirth}}
+                    </p>
                   </ion-text>
                 </ion-item>
               </ion-row>
 
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Nơi sinh</ion-label>
                   <ion-text>
-                    <p>ABCD</p>
+                    <p>{{personalInfo.basicInfo.birthPlace}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
 
               <ion-row class="input-row">
-                <ion-item class="test">
+                <ion-item class="container">
                   <ion-label class="input-label">Ghi chú</ion-label>
                   <ion-text>
-                    <p>ABCD</p>
+                    <p>{{personalInfo.basicInfo.note}}</p>
                   </ion-text>
                 </ion-item>
               </ion-row>
@@ -106,20 +120,217 @@
           </ion-row>
         </ion-grid>
       </ion-row>
-      <ion-row class="test">
-        <ion-item class="test">
+      <ion-row class="container">
+        <ion-item class="container title">
           <label>2. Thông tin chứng thực và thuế TNCN</label>
         </ion-item>
 
       </ion-row>
-      <ion-row class="test">
-        <ion-item class="test">
-          <label>3. Địa chỉ cư trú</label>
+
+      <ion-row class="container">
+        <ion-item>
+          <label>CMND, Căn cước & Mã số thuế TNCN</label>
         </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="col">
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Số CMND</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.identityCardNumber}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Ngày cấp</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.identityCardDate}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Ngày hết hạn</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.expireIdentityCardDate}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row last-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Nơi cấp</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.identityCardIssueBy}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Số căn cước</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.identityNumber}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Ngày cấp</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.identityDate}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Ngày hết hạn</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.expireIdentityDate}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+        </ion-col>
 
         <ion-col class="col">
           <ion-row class="input-row">
-            <ion-item class="test">
+            <ion-item class="container">
+              <ion-label class="input-label">Mã số thuế TNCN</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.taxNumber}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Ngày đăng ký</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.registrationDate}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Nơi đăng ký</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.registrationPlace}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="container">
+        <ion-item>
+          <label>Hộ chiếu, Thị thực</label>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="col">
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Số hộ chiếu</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.passportNumber}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row last-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Ngày cấp</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.passportDate}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Ngày hết hạn</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.expiredPassportDate}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Nơi cấp</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.visaIssuedBy}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Loại hộ chiếu</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.passportType}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+        </ion-col>
+
+        <ion-col class="col">
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Số thị thực</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.visaNumber}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row last-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Ngày cấp</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.visaDate}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Ngày hết hạn</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.expiredVisaDate}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="input-row">
+            <ion-item class="container">
+              <ion-label class="input-label">Quốc gia cấp</ion-label>
+              <ion-text>
+                <p>{{personalInfo.advanceInfo.nation}}</p>
+              </ion-text>
+            </ion-item>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="container">
+        <ion-row class="container">
+          <ion-item class="container title">
+            <label>3. Địa chỉ cư trú</label>
+          </ion-item>
+        </ion-row>
+        <ion-col class="col">
+          <ion-row class="input-row">
+            <ion-item class="container">
               <ion-label class="input-label">Địa chỉ thường trú</ion-label>
               <ion-text>
                 <p>{{personalInfo.addressInfo.permanentAddress}}</p>
@@ -128,7 +339,7 @@
           </ion-row>
 
           <ion-row class="input-row">
-            <ion-item class="test">
+            <ion-item class="container">
               <ion-label class="input-label">Ghi chú</ion-label>
               <ion-text>
                 <p>{{personalInfo.addressInfo.permanentAddressNote}}</p>
@@ -139,7 +350,7 @@
 
         <ion-col class="col">
           <ion-row class="input-row">
-            <ion-item class="test">
+            <ion-item class="container">
               <ion-label class="input-label">Địa chỉ tạm trú</ion-label>
               <ion-text>
                 <p>{{personalInfo.addressInfo.temporaryAddress}}</p>
@@ -148,7 +359,7 @@
           </ion-row>
 
           <ion-row class="input-row">
-            <ion-item class="test">
+            <ion-item class="container">
               <ion-label class="input-label">Địa chỉ nhà riêng</ion-label>
               <ion-text>
                 <p>{{personalInfo.addressInfo.homeAddress}}</p>
@@ -157,20 +368,10 @@
           </ion-row>
 
           <ion-row class="input-row">
-            <ion-item class="test">
+            <ion-item class="container">
               <ion-label class="input-label">Ghi chú</ion-label>
               <ion-text>
                 <p>{{personalInfo.addressInfo.temporaryAddressNote}}</p>
-              </ion-text>
-            </ion-item>
-          </ion-row>
-
-
-          <ion-row class="input-row">
-            <ion-item class="test">
-              <ion-label class="input-label"></ion-label>
-              <ion-text>
-                <p></p>
               </ion-text>
             </ion-item>
           </ion-row>

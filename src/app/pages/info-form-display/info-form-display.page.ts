@@ -19,6 +19,6 @@ export class InfoFormDisplayPage implements OnInit {
   ngOnInit() {
     this.personalInfo = Object.create(null);
     this.personalInfo = this.personalInfoService.getPersonalInfoLocal();
-    console.log(this.personalInfo.basicInfo.gender)
+    console.log(this.personalInfo.advanceInfo.identityCardDate);
   }
 }
